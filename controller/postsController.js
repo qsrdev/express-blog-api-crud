@@ -54,20 +54,20 @@ const update = (req, res) => {
 const destroy = (req, res) => {
   const consoleID = req.params.id;
 
-  const thatConsole = consoleArray.find((curConsole) => curConsole.id == consoleID);
+  const thatConsole = consoleArray.findIndex((curConsole) => curConsole.id == consoleID);
 
   if (thatConsole === -1) {
     res.status(404);
     res.json({
       errore: `Console non trovata`,
     });
+  } else {
+    consoleArray.splice(thatConsole, 1);
+    res.sendStatus(204);
+    res.json({
+      data: `cancellato il gioco n ${consoleID}`,
+    });
   }
-
-  consoleArray.splice(thatConsole, 1);
-  res.sendStatus(204);
-  res.json({
-    data: `cancellato il gioco n ${consoleID}`,
-  });
 };
 
 export default { index, show, store, update, destroy };
