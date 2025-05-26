@@ -37,7 +37,7 @@ const show = (req, res) => {
 
 // Store
 const store = (req, res) => {
-  res.json({
+  res.status(201).json({
     data: "Aggiungo una nuova console alla libreria",
   });
 };
@@ -62,8 +62,8 @@ const destroy = (req, res) => {
     });
   } else {
     consoleArray.splice(thatConsole, 1);
-    res.sendStatus(204).json({
-      data: `cancellato il gioco n ${consoleID}`,
+    res.status(200).json({
+      data: `cancellato il gioco n${consoleID}`,
     });
   }
 };
