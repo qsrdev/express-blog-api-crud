@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 //ogni volta che chiamo posts va a prendere dentro a quel router le informazioni
 app.use("/posts", postRouter);
 
-//Invoco la funzione di ascolto
+//Invoco la funzione di ascolto per la mia console
 app.listen(port, () => {
   console.log(chalk.bgGreenBright("Server sul retrogaming aperto"));
 });

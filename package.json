@@ -1,7 +1,7 @@
 {
   "name": "express-blog-routing",
   "version": "1.0.0",
-  "description": "Task 23/05/2025",
+  "description": "Task 26/05/2025",
   "main": "app.js",
   "scripts": {
     "dev": "node --watch app.js"
