@@ -57,14 +57,12 @@ const destroy = (req, res) => {
   const thatConsole = consoleArray.findIndex((curConsole) => curConsole.id == consoleID);
 
   if (thatConsole === -1) {
-    res.status(404);
-    res.json({
+    res.status(404).json({
       errore: `Console non trovata`,
     });
   } else {
     consoleArray.splice(thatConsole, 1);
-    res.sendStatus(204);
-    res.json({
+    res.sendStatus(204).json({
       data: `cancellato il gioco n ${consoleID}`,
     });
   }
