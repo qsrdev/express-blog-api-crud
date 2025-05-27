@@ -46,7 +46,7 @@ const store = (req, res) => {
   const lastId = parseInt(consoleArray[consoleArray.length - 1].id);
 
   //l'id della nuova console è il nostro ultimo id + 1
-  newConsole.id = (lastId + 1).toString;
+  newConsole.id = (lastId + 1).toString();
   //pusho il tutto nell'array
   consoleArray.push(newConsole);
 
@@ -54,13 +54,24 @@ const store = (req, res) => {
 
   //status 201 vuol dire richiesta di aggiunta
   res.status(201).json({
-    data: `Aggiungo una nuova console alla libreria`,
+    data: newConsole,
   });
 };
 
 // Update
 const update = (req, res) => {
   const consoleID = req.params.id;
+  //updateData è il post modificato in questo caso
+  const updateData = req.body;
+  console.log(updateData);
+
+  const thatConsole = consoleArray.find((curConsole) => curConsole.id === consoleID);
+
+  thatConsole.titolo = updateData.titolo;
+  thatConsole.contenuto = updateData.contenuto;
+  thatConsole.immagine = updateData.immagine;
+  thatConsole.tags = updateData.tags;
+
   res.json({
     data: `Modifico i dati della console con id ${consoleID}`,
   });
