@@ -54,7 +54,7 @@ const store = (req, res) => {
 
   //status 201 vuol dire richiesta di aggiunta
   res.status(201).json({
-    data: `Aggiungo una nuova console alla libreria con id n. ${newConsole.id}`,
+    data: `Aggiungo una nuova console alla libreria`,
   });
 };
 
