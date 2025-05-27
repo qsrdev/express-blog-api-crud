@@ -9,6 +9,9 @@ const port = 3000;
 //Permetto alla cartella public di essere pubblica così posso fare le ricehiste per il contenuto tramite API
 app.use(express.static("public"));
 
+//registro il body parser per l'applicazione
+app.use(express.json());
+
 //ROTTE
 app.get("/", (req, res) => {
   res.json({

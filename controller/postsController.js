@@ -37,8 +37,24 @@ const show = (req, res) => {
 
 // Store
 const store = (req, res) => {
+  //dall'api prelevo il body in questo caso il nostro oggetto PSP
+  const newConsole = req.body;
+  console.log(newConsole);
+
+  //per far si che l'id sia aggiornato bene, utilizzo questa riga di comando
+  //per prendere l'id dell'ultimo oggetto nell'array delle console
+  const lastId = parseInt(consoleArray[consoleArray.length - 1].id);
+
+  //l'id della nuova console è il nostro ultimo id + 1
+  newConsole.id = (lastId + 1).toString;
+  //pusho il tutto nell'array
+  consoleArray.push(newConsole);
+
+  //il metodo funziona per 1 oggetto alla volta
+
+  //status 201 vuol dire richiesta di aggiunta
   res.status(201).json({
-    data: "Aggiungo una nuova console alla libreria",
+    data: `Aggiungo una nuova console alla libreria con id n. ${newConsole.id}`,
   });
 };
 
