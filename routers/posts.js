@@ -1,5 +1,6 @@
 import express from "express";
 import postsController from "../controller/postsController.js";
+import errorHandler from "../middleware/serverError.js";
 
 const router = express.Router();
 
